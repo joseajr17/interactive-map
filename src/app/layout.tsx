@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { Container } from "@/components/Container";
+import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Mapa Interativo",
@@ -13,11 +15,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        suppressHydrationWarning
-        className={``}
-      >
-        {children}
+      <body suppressHydrationWarning className={``}>
+        <Header />
+        <Container>{children}</Container>
       </body>
     </html>
   );
