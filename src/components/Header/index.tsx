@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function Header() {
   return (
-    <header className="flex w-full flex-col items-center justify-between gap-4 bg-white px-4 py-4 shadow-md sm:flex-row sm:px-8 lg:px-16">
+    <header className="flex w-full flex-col items-center justify-between gap-4 bg-white px-4 py-4 shadow-md sm:flex-row sm:px-8 lg:px-16 fixed top-0 z-50">
       <h1 className="text-3xl font-extrabold text-slate-800">
         <Link
           href="/"
@@ -22,30 +22,24 @@ export function Header() {
       </h1>
 
       <nav className="flex items-center gap-4 sm:gap-6">
-        <Link
-          href="/"
+        <a
+          href="#sobre"
           className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
         >
           Sobre
-        </Link>
-        <Link
-          href="/"
+        </a>
+        <a
+          href="#ia-br"
           className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
         >
           IA no Brasil
-        </Link>
-        <Link
-          href="/"
+        </a>
+        <a
+          href="#mapa"
           className="font-semibold text-slate-600 transition-colors duration-300 hover:text-blue-600"
         >
           Mapa Interativo
-        </Link>
-        <Link
-          href="/"
-          className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
-        >
-          Contato
-        </Link>
+        </a>
       </nav>
     </header>
   );
