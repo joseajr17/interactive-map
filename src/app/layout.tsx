@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR">
-      <body suppressHydrationWarning className={``}>
+    <html lang="pt-BR" className="scroll-smooth">
+      <body suppressHydrationWarning className={`flex flex-col gap-4`}>
         <Header />
         <Container>{children}</Container>
       </body>
