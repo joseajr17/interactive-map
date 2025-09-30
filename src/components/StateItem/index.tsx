@@ -1,14 +1,17 @@
 "use client";
 
-import { Geography, Marker } from "@vnedyalk0v/react19-simple-maps";
+import { Geography } from "@vnedyalk0v/react19-simple-maps";
 import { StateLabel } from "../StateLabel";
 
 type StateItemProps = {
   geo: any;
   fillColor: string;
+  status: string;
 };
 
-export function StateItem({ geo, fillColor }: StateItemProps) {
+export function StateItem({ geo, fillColor, status }: StateItemProps) {
+  const isDisabled = status === "nenhuma";
+
   return (
     <>
       <Geography
@@ -21,6 +24,8 @@ export function StateItem({ geo, fillColor }: StateItemProps) {
             stroke: "#FFF",
             strokeWidth: 0.3,
             opacity: 0.95,
+            cursor: isDisabled ? "not-allowed" : "pointer",
+            pointerEvents: isDisabled ? "none" : "auto",
           },
           hover: {
             fill: fillColor,
@@ -28,7 +33,8 @@ export function StateItem({ geo, fillColor }: StateItemProps) {
             stroke: "#FFF",
             strokeWidth: 0.3,
             opacity: 0.8,
-            cursor: "pointer",
+            cursor: isDisabled ? "not-allowed" : "pointer",
+            pointerEvents: isDisabled ? "none" : "auto",
           },
         }}
       />

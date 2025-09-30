@@ -22,9 +22,9 @@ export default function BrazilMap() {
 
   return (
     <div className="flex flex-col gap-4">
-      
       {/* Legenda */}
       <MapLegend statusColors={statusColors} />
+
       {/* Mapa */}
       <MapWrapper>
         <Geographies geography={geoData}>
@@ -35,7 +35,14 @@ export default function BrazilMap() {
               const status = estado?.status || "nenhuma";
               const fillColor = statusColors[status];
 
-              return <StateItem key={geo.id} geo={geo} fillColor={fillColor} />;
+              return (
+                <StateItem
+                  key={geo.id}
+                  geo={geo}
+                  fillColor={fillColor}
+                  status={status}
+                />
+              );
             })
           }
         </Geographies>
