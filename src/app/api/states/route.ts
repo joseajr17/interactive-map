@@ -1,14 +1,13 @@
-// Lista todos os estados + status legislativo
-
 import { legislationStates } from "@/data/legislation";
 import { NextResponse } from "next/server";
 
 export async function GET() {
   const estados = Object.entries(legislationStates).map(
-    ([estadoSigla, status], index) => ({
+    ([estadoSigla, { status, leis }], index) => ({
       id: index + 1,
       estadoSigla,
       status,
+      leis,
     })
   );
 
@@ -17,17 +16,3 @@ export async function GET() {
     data: estados,
   });
 }
-
-/**
- * Exemplo de Resposta
- * 
- * {
-  "success": true,
-  "data": [
-    { "stateAcronym": "SP", "status": "proposta" },
-    { "stateAcronym": "RJ", "status": "promulgada" },
-    { "stateAcronym": "MG", "status": "proposta_e_promulgada" },
-    { "stateAcronym": "BA", "status": "nenhuma" }
-  ]
-} 
- */
