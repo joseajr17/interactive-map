@@ -4,68 +4,168 @@
 export const legislationStates: Record<
   string,
   {
-    status: string;
+    status: Record<string, string>;
     leis: Record<string, { titulo: string; resumo: string; link: string }[]>;
   }
 > = {
   // Proposta
-  BA: { status: "proposta", leis: {} },
-  CE: { status: "proposta", leis: {} },
-  MA: { status: "proposta", leis: {} },
-  MG: { status: "proposta", leis: {} },
-  RJ: {
-    status: "proposta",
+  BA: {
+    status: {
+      id: "proposta",
+      label: "Proposta",
+    },
     leis: {
-      proposta: [
+      Proposta: [
         {
-          titulo: "PL 789/2024",
+          titulo: "PL 25.725/2025",
           resumo:
-            "Projeto de lei que propõe diretrizes para uso de IA no setor público.",
-          link: "https://www.alrj.gov.br/leis/pl789-2024",
+            "Inclusão de inteligência artificial como disciplina eletiva em escolas públicas.",
+          link: "https://www.aleba.ba.gov.br/leis/pl25725-2025",
         },
       ],
-      promulgada: [],
+    },
+  },
+  CE: {
+    status: {
+      id: "proposta",
+      label: "Proposta",
+    },
+    leis: {
+      Proposta: [
+        {
+          titulo: "PL 612/2025",
+          resumo:
+            "Política Estadual de Fomento à Inovação em IA, incluindo 'IA nas Escolas' e sandbox regulatório.",
+          link: "https://www.al.ce.gov.br/leis/pl612-2025",
+        },
+      ],
+    },
+  },
+  MA: {
+    status: {
+      id: "proposta",
+      label: "Proposta",
+    },
+    leis: {
+      Proposta: [
+        {
+          titulo: "PL 183/2025",
+          resumo:
+            "Programa de Aprendizagem Ética de IA em escolas públicas e privadas.",
+          link: "https://www.al.ma.gov.br/leis/pl183-2025",
+        },
+      ],
+    },
+  },
+  MG: {
+    status: {
+      id: "proposta",
+      label: "Proposta",
+    },
+    leis: {
+      Proposta: [
+        {
+          titulo: "PL 3.634/2025",
+          resumo:
+            "Inclusão de inteligência artificial na grade curricular escolar.",
+          link: "https://www.almg.gov.br/leis/pl3634-2025",
+        },
+        {
+          titulo: "PL 4.097/2025",
+          resumo: "Programa Mineiro de Educação sobre Inteligência Artificial.",
+          link: "https://www.almg.gov.br/leis/pl4097-2025",
+        },
+      ],
+    },
+  },
+  RJ: {
+    status: {
+      id: "proposta",
+      label: "Proposta",
+    },
+    leis: {
+      Proposta: [
+        {
+          titulo: "PL 5.577/2025",
+          resumo:
+            "Identificação obrigatória de conteúdos gerados por inteligência artificial.",
+          link: "https://www.alrj.gov.br/leis/pl5577-2025",
+        },
+        {
+          titulo: "PL 5.660/2025",
+          resumo:
+            "Diretrizes éticas para o desenvolvimento de inteligência artificial.",
+          link: "https://www.alrj.gov.br/leis/pl5660-2025",
+        },
+        {
+          titulo: "PL 5.945/2025",
+          resumo: "Orientação sobre riscos de IA em saúde mental.",
+          link: "https://www.alrj.gov.br/leis/pl5945-2025",
+        },
+      ],
     },
   },
   SP: {
-    status: "proposta",
+    status: {
+      id: "proposta",
+      label: "Proposta",
+    },
     leis: {
-      proposta: [
+      Proposta: [
         {
-          titulo: "PL 123/2023",
+          titulo: "PL 572/2025",
           resumo:
-            "Dispõe sobre a regulamentação da inteligência artificial em serviços financeiros.",
-          link: "https://www.alsp.gov.br/leis/pl123-2023",
-        },
-        {
-          titulo: "PL 456/2024",
-          resumo:
-            "Estabelece regras de transparência para algoritmos utilizados por empresas privadas.",
-          link: "https://www.alsp.gov.br/leis/pl456-2024",
+            "Obrigatoriedade de rotulagem em mídias geradas por inteligência artificial.",
+          link: "https://www.alsp.gov.br/leis/pl572-2025",
         },
       ],
-      promulgada: [],
     },
   },
-  TO: { status: "proposta", leis: {} },
+  TO: {
+    status: {
+      id: "proposta",
+      label: "Proposta",
+    },
+    leis: {
+      Proposta: [
+        {
+          titulo: "PL 880/2024",
+          resumo:
+            "Disciplina eletiva de IA no currículo de letramento digital em escolas públicas.",
+          link: "https://www.al.to.gov.br/leis/pl880-2024",
+        },
+      ],
+    },
+  },
 
   // Legislação promulgada e proposta para IA
   GO: {
-    status: "proposta_e_promulgada",
+    status: {
+      id: "proposta_e_promulgada",
+      label: "Proposta e Promulgada",
+    },
+    //status: "proposta_e_promulgada",
     leis: {
-      proposta: [
+      Proposta: [
         {
-          titulo: "PL 555/2023",
+          titulo: "PL 113/2025",
           resumo:
-            "Propõe mecanismos de governança para sistemas automatizados no setor público.",
-          link: "https://www.assembleiago.gov.br/leis/pl555-2023",
+            "Princípios para o uso de inteligência artificial na administração pública.",
+          link: "https://www.assembleiago.gov.br/leis/pl113-2025",
+        },
+        {
+          titulo: "PL 261/2025",
+          resumo:
+            "Semana Estadual de Conscientização sobre Uso Responsável de IA por crianças e jovens.",
+          link: "https://www.assembleiago.gov.br/leis/pl261-2025",
         },
       ],
-      promulgada: [
+      Promulgada: [
         {
-          titulo: "Lei 9.999/2021",
-          resumo: "Lei que regula parcialmente o uso de IA em saúde.",
-          link: "https://www.assembleiago.gov.br/leis/9999-2021",
+          titulo: "Lei Complementar 205/2025",
+          resumo:
+            "Política Estadual de Fomento à Inovação em IA, com foco em ética, inovação e proteção de dados.",
+          link: "https://www.assembleiago.gov.br/leis/lc205-2025",
         },
       ],
     },
@@ -73,52 +173,23 @@ export const legislationStates: Record<
 
   // Apenas legislação promulgada para IA
   PR: {
-    status: "promulgada",
+    status: {
+      id: "promulgada",
+      label: "Promulgada",
+    },
     leis: {
-      proposta: [
+      Promulgada: [
         {
-          titulo: "HB4",
-          resumo: `Enacted on June 18,, 2023, HB4, the Texas Data Privacy and Security Act, is based on the Virginia Consumer Data Protection Act.  
-          The law creates similar requirements enabling individuals to opt-out of “profiling” that produces a legal or similarly significant 
-          effect concerning the individual. Controllers must also perform a data protection assessment for high-risk profiling activities.  
-          The Act went into force on July 1, 2024. 
-          Enacted on June 18,, 2023, HB4, the Texas Data Privacy and Security Act, is based on the Virginia Consumer Data Protection Act.  
-          The law creates similar requirements enabling individuals to opt-out of “profiling” that produces a legal or similarly significant 
-          effect concerning the individual. Controllers must also perform a data protection assessment for high-risk profiling activities.  
-          The Act went into force on July 1, 2024.`,
-          link: "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB4",
-        },
-        {
-          titulo: "HB4",
-          resumo: `Enacted on June 18,, 2023, HB4, the Texas Data Privacy and Security Act, is based on the Virginia Consumer Data Protection Act.  
-          The law creates similar requirements enabling individuals to opt-out of “profiling” that produces a legal or similarly significant 
-          effect concerning the individual. Controllers must also perform a data protection assessment for high-risk profiling activities.  
-          The Act went into force on July 1, 2024.`,
-          link: "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB4",
-        },
-        {
-          titulo: "HB4",
-          resumo: `Enacted on June 18,, 2023, HB4, the Texas Data Privacy and Security Act, is based on the Virginia Consumer Data Protection Act.  
-          The law creates similar requirements enabling individuals to opt-out of “profiling” that produces a legal or similarly significant 
-          effect concerning the individual. Controllers must also perform a data protection assessment for high-risk profiling activities.  
-          The Act went into force on July 1, 2024.`,
-          link: "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB4",
-        },
-        {
-          titulo: "HB4",
-          resumo: `Enacted on June 18,, 2023, HB4, the Texas Data Privacy and Security Act, is based on the Virginia Consumer Data Protection Act.  
-          The law creates similar requirements enabling individuals to opt-out of “profiling” that produces a legal or similarly significant 
-          effect concerning the individual. Controllers must also perform a data protection assessment for high-risk profiling activities.  
-          The Act went into force on July 1, 2024.`,
-          link: "https://capitol.texas.gov/BillLookup/History.aspx?LegSess=88R&Bill=HB4",
-        },
-      ],
-      promulgada: [
-        {
-          titulo: "Lei 10.111/2022",
+          titulo: "Lei 22.324/2025",
           resumo:
-            "Lei estadual que estabelece princípios para o uso ético da inteligência artificial.",
-          link: "https://www.alep.pr.gov.br/leis/10111-2022",
+            "Plano de Diretrizes de IA na Administração Pública Estadual.",
+          link: "https://www.alep.pr.gov.br/leis/22324-2025",
+        },
+        {
+          titulo: "Lei 22.343/2025",
+          resumo:
+            "Disciplina o uso de IA no estado, com ênfase em ética e eficiência pública.",
+          link: "https://www.alep.pr.gov.br/leis/22343-2025",
         },
       ],
     },
@@ -127,22 +198,130 @@ export const legislationStates: Record<
   // Sem nenhuma legislação proposta
   // Acre, Alagoas, Amapá, Amazonas, Espírito Santo, Mato Grosso, Mato Grosso do Sul, Paraíba, Piauí, Rio Grande do Norte, Rio Grande do Sul, Rondônia, Roraima, Santa Catarina, Sergipe
 
-  AC: { status: "nenhuma", leis: {} },
-  AL: { status: "nenhuma", leis: {} },
-  AP: { status: "nenhuma", leis: {} },
-  AM: { status: "nenhuma", leis: {} },
-  DF: { status: "nenhuma", leis: {} },
-  ES: { status: "nenhuma", leis: {} },
-  MT: { status: "nenhuma", leis: {} },
-  MS: { status: "nenhuma", leis: {} },
-  PA: { status: "nenhuma", leis: {} },
-  PB: { status: "nenhuma", leis: {} },
-  PE: { status: "nenhuma", leis: {} },
-  PI: { status: "nenhuma", leis: {} },
-  RN: { status: "nenhuma", leis: {} },
-  RS: { status: "nenhuma", leis: {} },
-  RO: { status: "nenhuma", leis: {} },
-  RR: { status: "nenhuma", leis: {} },
-  SC: { status: "nenhuma", leis: {} },
-  SE: { status: "nenhuma", leis: {} },
+  AC: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  AL: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  AP: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  AM: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  DF: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  ES: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  MT: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  MS: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  PA: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  PB: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  PE: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  PI: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  RN: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  RS: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  RO: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  RR: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  SC: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
+  SE: {
+    status: {
+      id: "nenhuma",
+      label: "Nenhuma",
+    },
+    leis: {},
+  },
 };
