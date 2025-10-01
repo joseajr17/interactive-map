@@ -1,11 +1,14 @@
 "use client";
 
+import { useState } from "react";
 import { Geographies } from "@vnedyalk0v/react19-simple-maps";
 import geoData from "../../../public/br-states.json";
+import { useStates } from "@/hooks/useStates";
+
 import { MapWrapper } from "../MapWrapper";
 import { StateItem } from "../StateItem";
-import { useStates } from "@/hooks/useStates";
 import { MapLegend } from "../MapLegend";
+import { StateDialog } from "../StateDialog";
 
 // Paleta de cores
 const statusColors: Record<string, string> = {
@@ -17,6 +20,8 @@ const statusColors: Record<string, string> = {
 
 export default function BrazilMap() {
   const { data: estados, loading } = useStates();
+  const [selected, setSelected] = useState<any>(null);
+  const [activeTab, setActiveTab] = useState<string>("");
 
   if (loading) return <p>Carregando mapa...</p>;
 
@@ -41,12 +46,33 @@ export default function BrazilMap() {
                   geo={geo}
                   fillColor={fillColor}
                   status={status}
+                  onClick={() => {
+                    setSelected({
+                      sigla: estadoSigla,
+                      nome: geo.properties.name, // nome completo do estado
+                      status,
+                      leis: estado?.leis || {},
+                    });
+
+                    // escolhe a primeira aba automaticamente
+                    const firstTab =
+                      Object.keys(estado?.leis || {})[0] || "nenhuma";
+                    setActiveTab(firstTab);
+                  }}
                 />
               );
             })
           }
         </Geographies>
       </MapWrapper>
+
+      {/* Modal com shadcn/ui */}
+      <StateDialog
+        selected={selected}
+        onClose={() => setSelected(null)}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
     </div>
   );
 }
