@@ -11,7 +11,7 @@ type StateItemProps = {
 };
 
 export function StateItem({ geo, fillColor, status, onClick }: StateItemProps) {
-  const isDisabled = status === "nenhuma";
+  const isDisabled = status === "Nenhuma";
 
   return (
     <>

@@ -15,7 +15,7 @@ const statusColors: Record<string, string> = {
   proposta: "#fd9a00",
   promulgada: "#0b4f4a",
   proposta_e_promulgada: "#024a70",
-  nenhuma: "#a6a09b",
+  nenhuma: "#0c0a09",
 };
 
 export default function BrazilMap() {
@@ -37,8 +37,9 @@ export default function BrazilMap() {
             geographies.map((geo) => {
               const estadoSigla = geo.id;
               const estado = estados.find((e) => e.estadoSigla === estadoSigla);
-              const status = estado?.status || "nenhuma";
-              const fillColor = statusColors[status];
+              const status = estado?.status.label;
+              const fillColor =
+                statusColors[estado?.status.id] || statusColors["nenhuma"];
 
               return (
                 <StateItem
@@ -56,7 +57,7 @@ export default function BrazilMap() {
 
                     // escolhe a primeira aba automaticamente
                     const firstTab =
-                      Object.keys(estado?.leis || {})[0] || "nenhuma";
+                      Object.keys(estado?.leis || {})[0] || "Nenhuma";
                     setActiveTab(firstTab);
                   }}
                 />
