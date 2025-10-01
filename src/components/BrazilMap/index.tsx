@@ -9,6 +9,7 @@ import { MapWrapper } from "../MapWrapper";
 import { StateItem } from "../StateItem";
 import { MapLegend } from "../MapLegend";
 import { StateDialog } from "../StateDialog";
+import { Loading } from "../Loading";
 
 // Paleta de cores
 const statusColors: Record<string, string> = {
@@ -23,7 +24,7 @@ export default function BrazilMap() {
   const [selected, setSelected] = useState<any>(null);
   const [activeTab, setActiveTab] = useState<string>("");
 
-  if (loading) return <p>Carregando mapa...</p>;
+  if (loading) return <Loading />;
 
   return (
     <div className="flex flex-col gap-4">
@@ -38,8 +39,7 @@ export default function BrazilMap() {
               const estadoSigla = geo.id;
               const estado = estados.find((e) => e.estadoSigla === estadoSigla);
               const status = estado?.status.label;
-              const fillColor =
-                statusColors[estado?.status.id] || statusColors["nenhuma"];
+              const fillColor = statusColors[estado?.status.id] || statusColors["nenhuma"];
 
               return (
                 <StateItem
