@@ -7,9 +7,10 @@ type StateItemProps = {
   geo: any;
   fillColor: string;
   status: string;
+  onClick?: () => void;
 };
 
-export function StateItem({ geo, fillColor, status }: StateItemProps) {
+export function StateItem({ geo, fillColor, status, onClick }: StateItemProps) {
   const isDisabled = status === "nenhuma";
 
   return (
@@ -17,6 +18,7 @@ export function StateItem({ geo, fillColor, status }: StateItemProps) {
       <Geography
         key={geo.rsmKey}
         geography={geo}
+        onClick={() => !isDisabled && onClick?.()}
         style={{
           default: {
             fill: fillColor,
