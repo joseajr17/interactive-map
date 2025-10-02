@@ -17,28 +17,30 @@ export function Header() {
             width={40}
             height={40}
           />
-          <span>BRAZMAP</span>
+          <span>Brasil Interativo</span>
         </Link>
       </h1>
 
       <nav className="flex items-center gap-4 sm:gap-6">
         <a
-          href="#sobre"
+          href="#summary"
           className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
         >
-          Sobre
+          Resumo
         </a>
+
         <a
-          href="#ia-br"
-          className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
-        >
-          IA no Brasil
-        </a>
-        <a
-          href="#mapa"
+          href="#map"
           className="font-semibold text-slate-600 transition-colors duration-300 hover:text-blue-600"
         >
           Mapa Interativo
+        </a>
+
+        <a
+          href="#ai-br"
+          className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
+        >
+          IA no Brasil
         </a>
       </nav>
     </header>
