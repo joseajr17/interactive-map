@@ -14,7 +14,7 @@ export default function Section({
   containerClassName = "",
 }: SectionProps) {
   return (
-    <section id={id} className={`pt-32 pb-16 ${className}`}>
+    <section id={id} className={`pt-[115px] sm:pt-20 pb-11 ${className}`}>
       <div className={`container mx-auto px-4 ${containerClassName}`}>
         {children}
       </div>
