@@ -15,9 +15,9 @@ import { MapPin } from "lucide-react";
 // Paleta de cores
 const statusColors: Record<string, string> = {
   proposta: "#fd9a00",
-  promulgada: "#0b4f4a",
-  proposta_e_promulgada: "#024a70",
-  nenhuma: "#0c0a09",
+  promulgada: "#008236",
+  proposta_e_promulgada: "#0084d1",
+  nenhuma: "#6a7282",
 };
 
 export default function BrazilMap() {
