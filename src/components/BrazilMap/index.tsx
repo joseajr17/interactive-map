@@ -29,6 +29,16 @@ export default function BrazilMap() {
 
   return (
     <div className="h-screen flex flex-col md:flex-row gap-4">
+      {/* Mensagem para celulares */}
+      <div className="block md:hidden w-full h-full flex flex-col items-center justify-center text-center px-4">
+        <MapPin className="w-16 h-16 mb-4 text-blue-500/80" />
+        <p className="text-lg font-semibold">
+          O mapa ainda não está disponível para resoluções abaixo de 768px.
+        </p>
+        <p className="text-sm mt-2 text-black/70">
+          Por favor, acesse em um tablet ou computador para visualizar.
+        </p>
+      </div>
 
       {/* Mapa + legenda apenas em telas médias ou maiores */}
       <div className="hidden md:flex flex-1 gap-4">
@@ -39,9 +49,12 @@ export default function BrazilMap() {
               {({ geographies }) =>
                 geographies.map((geo) => {
                   const estadoSigla = geo.id;
-                  const estado = estados.find((e) => e.estadoSigla === estadoSigla);
+                  const estado = estados.find(
+                    (e) => e.estadoSigla === estadoSigla
+                  );
                   const status = estado?.status.label;
-                  const fillColor = statusColors[estado?.status.id] || statusColors["nenhuma"];
+                  const fillColor =
+                    statusColors[estado?.status.id] || statusColors["nenhuma"];
 
                   return (
                     <StateItem
