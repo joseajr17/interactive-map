@@ -38,6 +38,15 @@ export function StateItem({ geo, fillColor, status, onClick }: StateItemProps) {
             cursor: isDisabled ? "not-allowed" : "pointer",
             pointerEvents: isDisabled ? "none" : "auto",
           },
+          pressed: {
+            fill: fillColor,
+            outline: "none",
+            stroke: "#FFF",
+            strokeWidth: 0.3,
+            opacity: 0.8,
+            cursor: isDisabled ? "not-allowed" : "pointer",
+            pointerEvents: isDisabled ? "none" : "auto",
+          },
         }}
       />
       <StateLabel geo={geo} />
