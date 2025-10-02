@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Container } from "@/components/Container";
 import { Header } from "@/components/Header";
 
 export const metadata: Metadata = {
@@ -17,7 +16,9 @@ export default function RootLayout({
     <html lang="pt-BR" className="scroll-smooth">
       <body suppressHydrationWarning className={`flex flex-col gap-4`}>
         <Header />
-        <Container>{children}</Container>
+
+        {children}
+        
       </body>
     </html>
   );
