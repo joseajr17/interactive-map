@@ -10,6 +10,7 @@ import { StateItem } from "../StateItem";
 import { MapLegend } from "../MapLegend";
 import { StateDialog } from "../StateDialog";
 import { Loading } from "../Loading";
+import { MapPin } from "lucide-react";
 
 // Paleta de cores
 const statusColors: Record<string, string> = {
@@ -27,45 +28,52 @@ export default function BrazilMap() {
   if (loading) return <Loading />;
 
   return (
-    <div className="flex flex-col gap-4">
-      {/* Legenda */}
-      <MapLegend statusColors={statusColors} />
+    <div className="h-screen flex flex-col md:flex-row gap-4">
 
-      {/* Mapa */}
-      <MapWrapper>
-        <Geographies geography={geoData}>
-          {({ geographies }) =>
-            geographies.map((geo) => {
-              const estadoSigla = geo.id;
-              const estado = estados.find((e) => e.estadoSigla === estadoSigla);
-              const status = estado?.status.label;
-              const fillColor = statusColors[estado?.status.id] || statusColors["nenhuma"];
+      {/* Mapa + legenda apenas em telas médias ou maiores */}
+      <div className="hidden md:flex flex-1 gap-4">
+        {/* Mapa */}
+        <div className="flex-1">
+          <MapWrapper>
+            <Geographies geography={geoData}>
+              {({ geographies }) =>
+                geographies.map((geo) => {
+                  const estadoSigla = geo.id;
+                  const estado = estados.find((e) => e.estadoSigla === estadoSigla);
+                  const status = estado?.status.label;
+                  const fillColor = statusColors[estado?.status.id] || statusColors["nenhuma"];
 
-              return (
-                <StateItem
-                  key={geo.id}
-                  geo={geo}
-                  fillColor={fillColor}
-                  status={status}
-                  onClick={() => {
-                    setSelected({
-                      sigla: estadoSigla,
-                      nome: geo.properties.name, // nome completo do estado
-                      status,
-                      leis: estado?.leis || {},
-                    });
+                  return (
+                    <StateItem
+                      key={geo.id}
+                      geo={geo}
+                      fillColor={fillColor}
+                      status={status}
+                      onClick={() => {
+                        setSelected({
+                          sigla: estadoSigla,
+                          nome: geo.properties.name,
+                          status,
+                          leis: estado?.leis || {},
+                        });
 
-                    // escolhe a primeira aba automaticamente
-                    const firstTab =
-                      Object.keys(estado?.leis || {})[0] || "Nenhuma";
-                    setActiveTab(firstTab);
-                  }}
-                />
-              );
-            })
-          }
-        </Geographies>
-      </MapWrapper>
+                        const firstTab =
+                          Object.keys(estado?.leis || {})[0] || "Nenhuma";
+                        setActiveTab(firstTab);
+                      }}
+                    />
+                  );
+                })
+              }
+            </Geographies>
+          </MapWrapper>
+        </div>
+
+        {/* Legenda */}
+        <div>
+          <MapLegend statusColors={statusColors} />
+        </div>
+      </div>
 
       {/* Modal com shadcn/ui */}
       <StateDialog
