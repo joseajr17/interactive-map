@@ -2,6 +2,7 @@ import BrazilMap from "@/components/BrazilMap";
 import { Container } from "@/components/Container";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
+import { Globe, Scale, TrendingUp } from "lucide-react";
 
 export default function Home() {
   return (
@@ -74,31 +75,83 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id="ia-br">
+        <Section id="ai-br">
           <SectionHeader
             title="IA no Brasil"
-            subtitle="Resumo da IA no Brasil"
+            subtitle="Panorama da Inteligência Artificial no país:"
           />
 
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto pt-4">
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                Contexto Nacional
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <Globe className="w-6 h-6 text-blue-600" />
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                  Contexto Nacional
+                </h3>
+              </div>
               <p className="text-gray-700">
-                A inteligência artificial no Brasil vem ganhando destaque tanto
-                no setor público quanto privado, com diversas iniciativas em
-                andamento.
+                A Inteligência Artificial no Brasil vem ganhando destaque tanto
+                no setor público quanto no privado. Universidades, centros de
+                pesquisa e empresas de tecnologia têm desenvolvido projetos em
+                áreas como saúde, educação, segurança e agronegócio, colocando o
+                país em um caminho de crescente adoção da IA.
+              </p>
+              <p className="text-gray-700 mt-4">
+                Além disso, iniciativas governamentais, como a Estratégia
+                Brasileira de Inteligência Artificial (EBIA), apontam diretrizes
+                para estimular a inovação, a capacitação de profissionais e a
+                aplicação ética e responsável dessas tecnologias.
               </p>
             </div>
 
             <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-xl font-semibold mb-4 text-gray-900">
-                Marco Legal
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <Scale className="w-6 h-6 text-green-600" />
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                  Marco Legal
+                </h3>
+              </div>
               <p className="text-gray-700">
-                Discussões sobre regulamentação federal e iniciativas estaduais
-                mostram um cenário diversificado e em constante evolução.
+                No campo jurídico, o Brasil discute atualmente o{" "}
+                <a
+                  href="https://www25.senado.leg.br/web/atividade/materias/-/materia/157233"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-700"
+                >
+                  Projeto de Lei nº 2.338/2023
+                </a>
+                , que propõe princípios e diretrizes para o uso da Inteligência
+                Artificial em território nacional. Paralelamente, estados e
+                municípios já começam a propor legislações próprias, refletindo
+                a diversidade de contextos e necessidades regionais.
+              </p>
+              <p className="text-gray-700 mt-4">
+                Esse cenário mostra um ambiente regulatório em construção, no
+                qual a harmonização entre iniciativas federais e estaduais será
+                fundamental para garantir segurança jurídica, inovação e
+                proteção de direitos.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <div className="flex items-center gap-3 mb-4">
+                <TrendingUp className="w-6 h-6 text-purple-600" />
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-900">
+                  Desafios e Oportunidades
+                </h3>
+              </div>
+              <p className="text-gray-700">
+                Apesar dos avanços, o Brasil enfrenta desafios como a
+                desigualdade no acesso a tecnologias, a necessidade de formação
+                de mão de obra especializada e a criação de mecanismos eficazes
+                para evitar vieses e usos discriminatórios da IA.
+              </p>
+              <p className="text-gray-700 mt-4">
+                Ao mesmo tempo, o país possui grandes oportunidades para aplicar
+                a Inteligência Artificial em áreas estratégicas como o
+                agronegócio, a saúde pública e a gestão urbana, ampliando o
+                desenvolvimento econômico e promovendo maior inclusão social.
               </p>
             </div>
           </div>
