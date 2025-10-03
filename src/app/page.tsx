@@ -5,12 +5,12 @@ import SectionHeader from "@/components/SectionHeader";
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <SectionHeader
+        title="Brasil Interativo"
+        subtitle="Um mapeamento interativo das legislações estaduais sobre Inteligência Artificial no Brasil"
+        bgImage="/bg.jpg"
+      />
       <Section id="sobre">
-        <SectionHeader
-          title="Sobre o Projeto"
-          subtitle="Um mapeamento completo das legislações estaduais sobre Inteligência Artificial no Brasil"
-        />
-
         <div className="prose prose-lg text-gray-700 max-w-4xl mx-auto">
           <p>
             Este projeto tem como objetivo mapear e analisar a situação das
