@@ -1,4 +1,5 @@
 import BrazilMap from "@/components/BrazilMap";
+import { Container } from "@/components/Container";
 import Section from "@/components/Section";
 import SectionHeader from "@/components/SectionHeader";
 
@@ -61,44 +62,48 @@ export default function Home() {
         </div>
       </Section>
 
+      <Container>
+        <Section id="mapa">
+          <SectionHeader
+            title="Mapa Interativo"
+            subtitle="Um mapa interativo com as legislações estaduais sobre Inteligência Artificial no Brasil"
+          />
 
-      <Section id="ia-br">
-        <SectionHeader title="IA no Brasil" subtitle="Resumo da IA no Brasil" />
-
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-4 text-gray-900">
-              Contexto Nacional
-            </h3>
-            <p className="text-gray-700">
-              A inteligência artificial no Brasil vem ganhando destaque tanto no
-              setor público quanto privado, com diversas iniciativas em
-              andamento.
-            </p>
+          <div className="max-w-6xl mx-auto">
+            <BrazilMap />
           </div>
+        </Section>
 
-          <div className="bg-white p-6 rounded-lg shadow-sm">
-            <h3 className="text-xl font-semibold mb-4 text-gray-900">
-              Marco Legal
-            </h3>
-            <p className="text-gray-700">
-              Discussões sobre regulamentação federal e iniciativas estaduais
-              mostram um cenário diversificado e em constante evolução.
-            </p>
+        <Section id="ia-br">
+          <SectionHeader
+            title="IA no Brasil"
+            subtitle="Resumo da IA no Brasil"
+          />
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                Contexto Nacional
+              </h3>
+              <p className="text-gray-700">
+                A inteligência artificial no Brasil vem ganhando destaque tanto
+                no setor público quanto privado, com diversas iniciativas em
+                andamento.
+              </p>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-sm">
+              <h3 className="text-xl font-semibold mb-4 text-gray-900">
+                Marco Legal
+              </h3>
+              <p className="text-gray-700">
+                Discussões sobre regulamentação federal e iniciativas estaduais
+                mostram um cenário diversificado e em constante evolução.
+              </p>
+            </div>
           </div>
-        </div>
-      </Section>
-
-      <Section id="mapa">
-        <SectionHeader
-          title="Mapa Interativo"
-          subtitle="Um mapa interativo com as legislações estaduais sobre Inteligência Artificial no Brasil"
-        />
-
-        <div className="max-w-6xl mx-auto">
-          <BrazilMap />
-        </div>
-      </Section>
+        </Section>
+      </Container>
     </div>
   );
 }
