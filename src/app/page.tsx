@@ -64,14 +64,31 @@ export default function Home() {
       </Section>
 
       <Container>
-        <Section id="mapa">
-          <SectionHeader
-            title="Mapa Interativo"
-            subtitle="Um mapa interativo com as legislações estaduais sobre Inteligência Artificial no Brasil"
-          />
+        <Section id="map">
+          <SectionHeader title="Mapa Interativo" />
 
-          <div className="max-w-6xl mx-auto">
-            <BrazilMap />
+          <div className="max-w-6xl mx-auto mt-6">
+            {/* Explicação */}
+            <p className="text-lg leading-relaxed text-gray-700 text-justify space-y-6">
+              Este mapa apresenta as iniciativas e legislações estaduais
+              relacionadas à Inteligência Artificial no Brasil. Ao clicar em
+              cada estado, você pode visualizar informações específicas, como
+              projetos de lei em andamento, regulamentações aprovadas e
+              iniciativas de pesquisa e inovação. A plataforma permite comparar
+              facilmente os diferentes contextos regulatórios em todo o país.
+            </p>
+
+            {/* Mapa */}
+            <div className="bg-white p-4 rounded-lg shadow-sm">
+              <BrazilMap />
+            </div>
+
+            {/* Observação */}
+            <p className="text-sm text-gray-500 italic mt-4 text-center">
+              * Os dados apresentados são baseados em informações públicas
+              disponíveis até 2025 e podem ser atualizados conforme novas
+              iniciativas surgirem.
+            </p>
           </div>
         </Section>
 
