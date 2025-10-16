@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
 
-type Estado = { id: number; estadoSigla: string; status: string };
+type Status = {
+  id: string;
+  label: string;
+};
+
+type Estado = {
+  id: number;
+  estadoSigla: string;
+  status: Status;
+  leis: Record<string, { titulo: string; resumo: string; link: string }[]>;
+};
 
 export function useStates() {
   const [data, setData] = useState<Estado[]>([]);
