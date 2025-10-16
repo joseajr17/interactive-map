@@ -3,8 +3,10 @@
 import { Geography } from "@vnedyalk0v/react19-simple-maps";
 import { StateLabel } from "../StateLabel";
 
+import { GeographyType } from "@/types";
+
 type StateItemProps = {
-  geo: any;
+  geo: GeographyType;
   fillColor: string;
   status: string;
   onClick?: () => void;
