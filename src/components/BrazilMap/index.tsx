@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Geographies } from "@vnedyalk0v/react19-simple-maps";
-import geoData from "../../../public/br-states.json";
+import geoData from "@/data/br-states.json";
 import { useStates } from "@/hooks/useStates";
 
 import { MapWrapper } from "../MapWrapper";
@@ -11,6 +11,9 @@ import { MapLegend } from "../MapLegend";
 import { StateDialog } from "../StateDialog";
 import { Loading } from "../Loading";
 import { MapPin } from "lucide-react";
+
+import { SelectedState } from "@/types";
+import { GeographyType } from "@/types";
 
 // Paleta de cores
 const statusColors: Record<string, string> = {
@@ -22,7 +25,7 @@ const statusColors: Record<string, string> = {
 
 export default function BrazilMap() {
   const { data: estados, loading } = useStates();
-  const [selected, setSelected] = useState<any>(null);
+  const [selected, setSelected] = useState<SelectedState | null>(null);
   const [activeTab, setActiveTab] = useState<string>("");
 
   if (loading) return <Loading />;
@@ -48,24 +51,30 @@ export default function BrazilMap() {
             <Geographies geography={geoData}>
               {({ geographies }) =>
                 geographies.map((geo) => {
-                  const estadoSigla = geo.id;
+                  const geography = geo as GeographyType;
+
+                  if (typeof geography.id !== "string") {
+                    return null;
+                  }
+
+                  const estadoSigla = geography.id; // Agora o TypeScript sabe que é uma string
                   const estado = estados.find(
                     (e) => e.estadoSigla === estadoSigla
                   );
-                  const status = estado?.status.label;
+                  const status = estado?.status.label || "";
                   const fillColor =
-                    statusColors[estado?.status.id] || statusColors["nenhuma"];
+                    statusColors[estado?.status.id ?? "nenhuma"];
 
                   return (
                     <StateItem
-                      key={geo.id}
-                      geo={geo}
+                      key={geography.id}
+                      geo={geography}
                       fillColor={fillColor}
                       status={status}
                       onClick={() => {
                         setSelected({
                           sigla: estadoSigla,
-                          nome: geo.properties.name,
+                          nome: geography.properties?.name || "",
                           status,
                           leis: estado?.leis || {},
                         });
