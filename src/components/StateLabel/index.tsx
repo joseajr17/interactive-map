@@ -1,18 +1,20 @@
 "use client";
 
-import { Marker } from "@vnedyalk0v/react19-simple-maps";
+import { Coordinates, Marker } from "@vnedyalk0v/react19-simple-maps";
 import { geoCentroid } from "d3-geo";
 
+import { GeographyType } from "@/types";
+
 type StateLabelProps = {
-  geo: any;
+  geo: GeographyType;
 };
 
 export function StateLabel({ geo }: StateLabelProps) {
   const centroid = geoCentroid(geo);
-  const estadoSigla = geo.id; // sigla ou nome
+  const estadoSigla = geo.id;
 
   return (
-    <Marker coordinates={centroid}>
+    <Marker coordinates={centroid as Coordinates}>
       <text
         textAnchor="start"
         alignmentBaseline={estadoSigla === "PB" ? "mathematical" : "middle"}
