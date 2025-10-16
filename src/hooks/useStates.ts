@@ -5,21 +5,21 @@ type Status = {
   label: string;
 };
 
-type Estado = {
+type State = {
   id: number;
-  estadoSigla: string;
+  stateAcronym: string;
   status: Status;
-  leis: Record<string, { titulo: string; resumo: string; link: string }[]>;
+  laws: Record<string, { title: string; summary: string; link: string }[]>;
 };
 
 export function useStates() {
-  const [data, setData] = useState<Estado[]>([]);
+  const [data, setData] = useState<State[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/states")
       .then((res) => res.json())
-      .then((json) => setData(json.data)) // pega só o "data"
+      .then((json) => setData(json.data)) // takes only the "data"
       .finally(() => setLoading(false));
   }, []);
 

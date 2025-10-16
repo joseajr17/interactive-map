@@ -11,18 +11,18 @@ type StateLabelProps = {
 
 export function StateLabel({ geo }: StateLabelProps) {
   const centroid = geoCentroid(geo);
-  const estadoSigla = geo.id;
+  const acronymState = geo.id;
 
   return (
     <Marker coordinates={centroid as Coordinates}>
       <text
         textAnchor="start"
-        alignmentBaseline={estadoSigla === "PB" ? "mathematical" : "middle"}
+        alignmentBaseline={acronymState === "PB" ? "mathematical" : "middle"}
         fontSize={2}
         fill="#fff"
         style={{ pointerEvents: "none", fontWeight: "bold" }}
       >
-        {estadoSigla !== "DF" ? estadoSigla : ""}
+        {acronymState !== "DF" ? acronymState : ""}
       </text>
     </Marker>
   );

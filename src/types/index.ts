@@ -5,20 +5,19 @@ import type { Feature } from "geojson";
 export type GeographyType = Feature & { rsmKey: string };
 
 // A estrutura de uma única lei
-export type Lei = {
-  titulo: string;
-  resumo: string;
+export type Law = {
+  title: string;
+  summary: string;
   link: string;
 };
 
 // O objeto que contém as leis, separadas por status
-export type Leis = Record<string, Lei[]>;
+export type Laws = Record<string, Law[]>;
 
 // O objeto que representa o estado selecionado no mapa
 export type SelectedState = {
-  sigla: string;
-  nome: string;
+  acronym: string;
+  name: string;
   status: string;
-  leis: Leis;
+  laws: Laws;
 };
-

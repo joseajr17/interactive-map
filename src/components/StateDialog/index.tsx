@@ -13,7 +13,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-import { SelectedState } from "@/types";
+import { Law, SelectedState } from "@/types";
 
 type StateDialogProps = {
   selected: SelectedState | null;
@@ -33,7 +33,7 @@ export function StateDialog({
       <DialogContent className="max-w-lg max-h-[80vh]">
         <DialogHeader>
           <DialogTitle>
-            {selected?.nome} ({selected?.sigla})
+            {selected?.name} ({selected?.acronym})
           </DialogTitle>
           <DialogDescription>
             Status:{" "}
@@ -48,42 +48,35 @@ export function StateDialog({
             className="w-full"
           >
             <TabsList>
-              {Object.keys(selected.leis || {}).map((statusKey) => (
+              {Object.keys(selected.laws || {}).map((statusKey) => (
                 <TabsTrigger key={statusKey} value={statusKey}>
                   {statusKey}
                 </TabsTrigger>
               ))}
             </TabsList>
 
-            {Object.keys(selected.leis || {}).map((statusKey) => (
+            {Object.keys(selected.laws || {}).map((statusKey) => (
               <TabsContent key={statusKey} value={statusKey}>
                 <ScrollArea className="h-60 pr-4 space-y-4">
-                  {selected.leis?.[statusKey]?.length ? (
-                    selected.leis[statusKey].map(
-                      (
-                        lei: { titulo: string; resumo: string; link: string },
-                        idx: number
-                      ) => (
-                        <div
-                          key={idx}
-                          className="border rounded-lg p-3 shadow-sm bg-white space-y-2"
-                        >
-                          <h3 className="font-semibold text-sm">
-                            {lei.titulo}
-                          </h3>
-                          <p className="text-xs text-gray-600">{lei.resumo}</p>
-                          <Button asChild size="sm" className="mt-2">
-                            <a
-                              href={lei.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                            >
-                              Acessar
-                            </a>
-                          </Button>
-                        </div>
-                      )
-                    )
+                  {selected.laws?.[statusKey]?.length ? (
+                    selected.laws[statusKey].map((law: Law, idx: number) => (
+                      <div
+                        key={idx}
+                        className="border rounded-lg p-3 shadow-sm bg-white space-y-2"
+                      >
+                        <h3 className="font-semibold text-sm">{law.title}</h3>
+                        <p className="text-xs text-gray-600">{law.summary}</p>
+                        <Button asChild size="sm" className="mt-2">
+                          <a
+                            href={law.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            Acessar
+                          </a>
+                        </Button>
+                      </div>
+                    ))
                   ) : (
                     <p className="text-gray-600">Nenhuma lei cadastrada</p>
                   )}

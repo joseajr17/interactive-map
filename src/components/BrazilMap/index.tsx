@@ -24,7 +24,7 @@ const statusColors: Record<string, string> = {
 };
 
 export default function BrazilMap() {
-  const { data: estados, loading } = useStates();
+  const { data: states, loading } = useStates();
   const [selected, setSelected] = useState<SelectedState | null>(null);
   const [activeTab, setActiveTab] = useState<string>("");
 
@@ -57,13 +57,12 @@ export default function BrazilMap() {
                     return null;
                   }
 
-                  const estadoSigla = geography.id; // Agora o TypeScript sabe que é uma string
-                  const estado = estados.find(
-                    (e) => e.estadoSigla === estadoSigla
+                  const stateAcronym = geography.id; // Agora o TypeScript sabe que é uma string
+                  const state = states.find(
+                    (e) => e.stateAcronym === stateAcronym
                   );
-                  const status = estado?.status.label || "";
-                  const fillColor =
-                    statusColors[estado?.status.id ?? "nenhuma"];
+                  const status = state?.status.label || "";
+                  const fillColor = statusColors[state?.status.id ?? "nenhuma"];
 
                   return (
                     <StateItem
@@ -73,14 +72,14 @@ export default function BrazilMap() {
                       status={status}
                       onClick={() => {
                         setSelected({
-                          sigla: estadoSigla,
-                          nome: geography.properties?.name || "",
+                          acronym: stateAcronym,
+                          name: geography.properties?.name || "",
                           status,
-                          leis: estado?.leis || {},
+                          laws: state?.laws || {},
                         });
 
                         const firstTab =
-                          Object.keys(estado?.leis || {})[0] || "Nenhuma";
+                          Object.keys(state?.laws || {})[0] || "Nenhuma";
                         setActiveTab(firstTab);
                       }}
                     />
