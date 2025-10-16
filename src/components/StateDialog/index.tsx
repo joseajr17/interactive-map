@@ -13,8 +13,10 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
+import { SelectedState } from "@/types";
+
 type StateDialogProps = {
-  selected: any;
+  selected: SelectedState | null;
   onClose: () => void;
   activeTab: string;
   setActiveTab: (tab: string) => void;
