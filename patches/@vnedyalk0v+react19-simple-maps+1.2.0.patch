@@ -1,0 +1,52 @@
+diff --git a/node_modules/@vnedyalk0v/react19-simple-maps/dist/index.es.js b/node_modules/@vnedyalk0v/react19-simple-maps/dist/index.es.js
+index 9a9b66a..5008a68 100644
+--- a/node_modules/@vnedyalk0v/react19-simple-maps/dist/index.es.js
++++ b/node_modules/@vnedyalk0v/react19-simple-maps/dist/index.es.js
+@@ -1,5 +1,6 @@
+ import { jsx, jsxs, Fragment } from 'react/jsx-runtime';
+-import { cache, createContext, useMemo, useContext, captureOwnerStack, memo, useState, useEffect, useCallback, Component, Suspense, useRef, useTransition, useOptimistic, useDeferredValue, Fragment as Fragment$1 } from 'react';
++import { cache, createContext, useMemo, useContext, memo, useState, useEffect, useCallback, Component, Suspense, useRef, useTransition, useOptimistic, useDeferredValue, Fragment as Fragment$1 } from 'react';
++// import { cache, createContext, useMemo, useContext, captureOwnerStack, memo, useState, useEffect, useCallback, Component, Suspense, useRef, useTransition, useOptimistic, useDeferredValue, Fragment as Fragment$1 } from 'react';
+ import * as d3Geo from 'd3-geo';
+ import { geoCentroid, geoBounds, geoGraticule } from 'd3-geo';
+ import { prefetchDNS, preconnect, preload } from 'react-dom';
+@@ -920,7 +921,8 @@ class MapDebugger {
+     logRender(componentName, props, state) {
+         if (!this.isEnabled)
+             return;
+-        const ownerStack = captureOwnerStack();
++        const ownerStack = null;
++        // const ownerStack = captureOwnerStack();
+         const debugInfo = {
+             componentName,
+             ownerStack,
+@@ -954,7 +956,8 @@ class MapDebugger {
+     logError(componentName, error, props) {
+         if (!this.isEnabled)
+             return;
+-        const ownerStack = captureOwnerStack();
++        const ownerStack = null;
++        // const ownerStack = captureOwnerStack();
+         const debugInfo = {
+             componentName,
+             ownerStack,
+@@ -1085,7 +1088,8 @@ const devTools = {
+     logComponentHierarchy: (componentName) => {
+         if (typeof process !== 'undefined' &&
+             process.env.NODE_ENV !== 'production') {
+-            const ownerStack = captureOwnerStack();
++            const ownerStack = null;
++            // const ownerStack = captureOwnerStack();
+             // eslint-disable-next-line no-console
+             console.log(`📊 Component Hierarchy for ${componentName}:`, ownerStack);
+         }
+@@ -1112,7 +1116,8 @@ const devTools = {
+         if (typeof process !== 'undefined' &&
+             process.env.NODE_ENV !== 'production') {
+             try {
+-                const ownerStack = captureOwnerStack();
++                const ownerStack = null;
++                // const ownerStack = captureOwnerStack();
+                 // eslint-disable-next-line no-console
+                 console.group(`🌍 Geography Loading: ${url}`);
+                 // eslint-disable-next-line no-console
