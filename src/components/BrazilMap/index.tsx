@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Geographies } from "@vnedyalk0v/react19-simple-maps";
 import geoData from "@/data/br-states.json";
 import { useStates } from "@/hooks/useStates";
@@ -10,7 +10,6 @@ import { StateItem } from "../StateItem";
 import { MapLegend } from "../MapLegend";
 import { StateDialog } from "../StateDialog";
 import { Loading } from "../Loading";
-import { MapPin } from "lucide-react";
 
 import { SelectedState } from "@/types";
 import { GeographyType } from "@/types";
@@ -27,27 +26,24 @@ export default function BrazilMap() {
   const { data: states, loading } = useStates();
   const [selected, setSelected] = useState<SelectedState | null>(null);
   const [activeTab, setActiveTab] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   if (loading) return <Loading />;
 
   return (
     <div className="h-screen flex flex-col md:flex-row gap-4">
-      {/* Mensagem para celulares */}
-      <div className="block md:hidden w-full h-full flex flex-col items-center justify-center text-center px-4">
-        <MapPin className="w-16 h-16 mb-4 text-blue-500/80" />
-        <p className="text-lg font-semibold">
-          O mapa ainda não está disponível para resoluções abaixo de 768px.
-        </p>
-        <p className="text-sm mt-2 text-black/70">
-          Por favor, acesse em um tablet ou computador para visualizar.
-        </p>
-      </div>
-
       {/* Mapa + legenda apenas em telas médias ou maiores */}
-      <div className="hidden md:flex flex-1 gap-4">
+      <div className="flex flex-col md:flex-row flex-1 gap-4">
         {/* Mapa */}
         <div className="flex-1">
-          <MapWrapper>
+          <MapWrapper isMobile={isMobile}>
             <Geographies geography={geoData}>
               {({ geographies }) =>
                 geographies.map((geo) => {
@@ -57,7 +53,7 @@ export default function BrazilMap() {
                     return null;
                   }
 
-                  const stateAcronym = geography.id; // Agora o TypeScript sabe que é uma string
+                  const stateAcronym = geography.id;
                   const state = states.find(
                     (e) => e.stateAcronym === stateAcronym
                   );
