@@ -16,6 +16,7 @@ export function StateLabel({ geo }: StateLabelProps) {
   return (
     <Marker coordinates={centroid as Coordinates}>
       <text
+        data-test={`marker-${acronymState}`}
         textAnchor="start"
         alignmentBaseline={acronymState === "PB" ? "mathematical" : "middle"}
         fontSize={2}

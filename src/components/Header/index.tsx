@@ -5,7 +5,10 @@ import Image from "next/image";
 
 export function Header() {
   return (
-    <header className="flex w-full flex-col items-center justify-between gap-4 bg-white px-4 py-4 shadow-md sm:flex-row sm:px-8 lg:px-16 fixed top-0 z-50">
+    <header
+      className="flex w-full flex-col items-center justify-between gap-4 bg-white px-4 py-4 shadow-md sm:flex-row sm:px-8 lg:px-16 fixed top-0 z-50"
+      data-test="header"
+    >
       <h1 className="text-3xl font-extrabold text-slate-800">
         <Link
           href="/"
@@ -17,7 +20,7 @@ export function Header() {
             width={40}
             height={40}
           />
-          <span>Brasil Interativo</span>
+          <span data-test="header-title">Brasil Interativo</span>
         </Link>
       </h1>
 
@@ -25,6 +28,7 @@ export function Header() {
         <a
           href="#summary"
           className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
+          data-test="summary-link"
         >
           Resumo
         </a>
@@ -32,6 +36,7 @@ export function Header() {
         <a
           href="#map"
           className="font-semibold text-slate-600 transition-colors duration-300 hover:text-blue-600"
+          data-test="map-link"
         >
           Mapa Interativo
         </a>
@@ -39,6 +44,7 @@ export function Header() {
         <a
           href="#ai-br"
           className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
+          data-test="ia-br-link"
         >
           IA no Brasil
         </a>
