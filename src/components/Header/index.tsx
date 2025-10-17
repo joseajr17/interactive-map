@@ -24,7 +24,7 @@ export function Header() {
         </Link>
       </h1>
 
-      <nav className="flex items-center gap-4 sm:gap-6">
+      <nav className="flex items-center gap-4 sm:gap-6" data-test="header-nav">
         <a
           href="#summary"
           className="text-slate-600 transition-colors duration-300 hover:text-blue-600"

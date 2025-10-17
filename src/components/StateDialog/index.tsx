@@ -29,13 +29,16 @@ export function StateDialog({
   setActiveTab,
 }: StateDialogProps) {
   return (
-    <Dialog open={!!selected} onOpenChange={onClose}>
-      <DialogContent className="max-w-lg max-h-[80vh]">
-        <DialogHeader>
-          <DialogTitle>
+    <Dialog open={!!selected} onOpenChange={onClose} data-test="state-dialog">
+      <DialogContent
+        className="max-w-lg max-h-[80vh]"
+        data-test="state-dialog-content"
+      >
+        <DialogHeader data-test="state-dialog-header">
+          <DialogTitle data-test="state-dialog-title">
             {selected?.name} ({selected?.acronym})
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription data-test="state-dialog-description">
             Status:{" "}
             <span className="font-semibold capitalize">{selected?.status}</span>
           </DialogDescription>
@@ -46,27 +49,52 @@ export function StateDialog({
             value={activeTab}
             onValueChange={setActiveTab}
             className="w-full"
+            data-test="state-dialog-tabs"
           >
-            <TabsList>
+            <TabsList data-test="state-dialog-tabs-list">
               {Object.keys(selected.laws || {}).map((statusKey) => (
-                <TabsTrigger key={statusKey} value={statusKey}>
+                <TabsTrigger
+                  key={statusKey}
+                  value={statusKey}
+                  data-test={`state-dialog-tab-${statusKey}`}
+                >
                   {statusKey}
                 </TabsTrigger>
               ))}
             </TabsList>
 
             {Object.keys(selected.laws || {}).map((statusKey) => (
-              <TabsContent key={statusKey} value={statusKey}>
+              <TabsContent
+                key={statusKey}
+                value={statusKey}
+                data-test={`state-dialog-tab-content-${statusKey}`}
+              >
                 <ScrollArea className="h-60 pr-4 space-y-4">
                   {selected.laws?.[statusKey]?.length ? (
                     selected.laws[statusKey].map((law: Law, idx: number) => (
                       <div
                         key={idx}
                         className="border rounded-lg p-3 shadow-sm bg-white space-y-2"
+                        data-test={`state-law-card-${idx}`}
                       >
-                        <h3 className="font-semibold text-sm">{law.title}</h3>
-                        <p className="text-xs text-gray-600">{law.summary}</p>
-                        <Button asChild size="sm" className="mt-2">
+                        <h3
+                          className="font-semibold text-sm"
+                          data-test="state-law-title"
+                        >
+                          {law.title}
+                        </h3>
+                        <p
+                          className="text-xs text-gray-600"
+                          data-test="state-law-summary"
+                        >
+                          {law.summary}
+                        </p>
+                        <Button
+                          asChild
+                          size="sm"
+                          className="mt-2"
+                          data-test="state-law-button"
+                        >
                           <a
                             href={law.link}
                             target="_blank"
@@ -86,8 +114,12 @@ export function StateDialog({
           </Tabs>
         )}
 
-        <DialogFooter>
-          <Button variant="destructive" onClick={onClose}>
+        <DialogFooter data-test="state-dialog-footer">
+          <Button
+            variant="destructive"
+            onClick={onClose}
+            data-test="state-dialog-close"
+          >
             Fechar
           </Button>
         </DialogFooter>
