@@ -34,7 +34,7 @@ export function Header() {
         </a>
 
         <a
-          href="#map"
+          href="#map-section"
           className="font-semibold text-slate-600 transition-colors duration-300 hover:text-blue-600"
           data-test="map-link"
         >
@@ -42,9 +42,9 @@ export function Header() {
         </a>
 
         <a
-          href="#ai-br"
+          href="#ai-br-section"
           className="text-slate-600 transition-colors duration-300 hover:text-blue-600"
-          data-test="ia-br-link"
+          data-test="ai-br-link"
         >
           IA no Brasil
         </a>

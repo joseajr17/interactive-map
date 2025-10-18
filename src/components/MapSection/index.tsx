@@ -4,9 +4,9 @@ import SectionHeader from "../SectionHeader";
 
 export function MapSection() {
   return (
-    <Section id="map">
-      <SectionHeader title="Mapa Interativo" id="map" />
-      <div className="max-w-6xl mx-auto mt-6">
+    <Section id="map-section">
+      <SectionHeader title="Mapa Interativo" id="map"/>
+      <div className="max-w-6xl mx-auto mt-6" id="map">
         {/* Explicação */}
         <p
           className="text-lg leading-relaxed text-gray-700 text-justify space-y-6"

@@ -4,13 +4,16 @@ import { GiBrazil } from "react-icons/gi";
 
 export function Footer() {
   return (
-    <footer className="flex flex-col items-center justify-center pb-5 text-center gap-2" data-test={`footer-content`}>
+    <footer
+      className="flex flex-col items-center justify-center pb-5 text-center gap-2"
+      data-test="footer-content"
+    >
       <p className="text-sm text-gray-500 text-center flex items-center justify-center gap-1">
         <span>Copyright &copy; {new Date().getFullYear()} -</span>
         <Link
           href="/"
           className="flex items-center gap-1 font-medium text-slate-800 hover:text-slate-800/80"
-          data-test={`footer-title`}
+          data-test="footer-title"
         >
           Brasil Interativo <GiBrazil className="w-4 h-4" />
         </Link>
@@ -23,7 +26,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-black transition"
-          data-test={`github-link`}
+          data-test="github-link"
         >
           <FaGithub size={28} />
         </a>
@@ -34,7 +37,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-blue-500  transition"
-          data-test={`linkedin-link`}
+          data-test="linkedin-link"
         >
           <FaLinkedin size={28} />
         </a>
@@ -45,7 +48,7 @@ export function Footer() {
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-red-500 transition"
-          data-test={`email-link`}
+          data-test="email-link"
         >
           <FaEnvelope size={28} />
         </a>

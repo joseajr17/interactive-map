@@ -9,10 +9,10 @@ export function IaBrSection() {
       <SectionHeader
         title="IA no Brasil"
         subtitle="Panorama da Inteligência Artificial no país:"
-        id="ia-br"
+        id="ai-br"
       />
 
-      <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto pt-4">
+      <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto pt-4" >
         <InfoCard
           id="context"
           icon={<Globe className="w-6 h-6 text-blue-600" />}
