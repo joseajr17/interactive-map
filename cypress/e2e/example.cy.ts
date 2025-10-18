@@ -1,5 +1,11 @@
 describe("HomePage", () => {
-  it("Deve abrir a HomePage com sucesso", () => {
-    cy.visit("http://localhost:3000/");
+  beforeEach(() => {
+    cy.visit("/");
+  });
+
+  it("Deve redirecionar para a seção de Resumo com sucesso", () => {
+    cy.get('[data-test="summary-link"]').click();
+    cy.get('[data-test="summary-section-title"]').isInViewport();
+    cy.get('[data-test="home-section-title"]').isNotInViewport();
   });
 });
