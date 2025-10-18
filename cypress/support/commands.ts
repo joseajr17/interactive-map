@@ -8,8 +8,10 @@ Cypress.Commands.add("isInViewport", { prevSubject: true }, (subject) => {
     expect(rect.bottom).to.be.within(0, bottom);
     expect(rect.left).to.be.within(0, right);
     expect(rect.right).to.be.within(0, right);
+
+    cy.wrap(subject);
   });
-  return subject;
+  
 });
 
 Cypress.Commands.add("isNotInViewport", { prevSubject: true }, (subject) => {
@@ -20,6 +22,7 @@ Cypress.Commands.add("isNotInViewport", { prevSubject: true }, (subject) => {
     const isBelow = rect.top > bottom;
 
     expect(isAbove || isBelow).to.be.true;
+
+    cy.wrap(subject);
   });
-  return subject;
 });
