@@ -1,5 +1,4 @@
 Cypress.Commands.add("isInViewport", { prevSubject: true }, (subject) => {
-  // cy.window() obtém o objeto 'window' de forma segura
   cy.window().then((win) => {
     const bottom = win.innerHeight;
     const right = win.innerWidth;
@@ -10,9 +9,6 @@ Cypress.Commands.add("isInViewport", { prevSubject: true }, (subject) => {
     expect(rect.left).to.be.within(0, right);
     expect(rect.right).to.be.within(0, right);
   });
-
-  // Retorna o 'subject' original para permitir que outros comandos sejam encadeados
-  // Ex: cy.get('...').isInViewport().click();
   return subject;
 });
 
@@ -25,6 +21,5 @@ Cypress.Commands.add("isNotInViewport", { prevSubject: true }, (subject) => {
 
     expect(isAbove || isBelow).to.be.true;
   });
-
   return subject;
 });
