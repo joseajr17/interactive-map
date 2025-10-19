@@ -16,7 +16,7 @@ export function MapWrapper({ children, isMobile = false }: MapWrapperProps) {
 
   return (
     <div className="h-full">
-      <ComposableMap className="w-full h-full" data-test="map-root">
+      <ComposableMap className="w-full h-full" data-test="brazil-map">
         <ZoomableGroup
           center={centerValue as [Longitude, Latitude]}
           zoom={zoomValue}

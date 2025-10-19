@@ -44,7 +44,7 @@ export default function BrazilMap() {
         {/* Mapa */}
         <div className="flex-1">
           <MapWrapper isMobile={isMobile}>
-            <Geographies geography={geoData} data-test="geographies">
+            <Geographies geography={geoData} data-test="brazil-states">
               {({ geographies }) =>
                 geographies.map((geo) => {
                   const geography = geo as GeographyType;

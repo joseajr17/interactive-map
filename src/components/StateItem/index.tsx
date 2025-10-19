@@ -18,7 +18,7 @@ export function StateItem({ geo, fillColor, status, onClick }: StateItemProps) {
   return (
     <>
       <Geography
-        data-test={`state-${geo.id}`}
+        data-test={`brazil-state-${geo.id}`}
         key={geo.rsmKey}
         geography={geo}
         onClick={() => !isDisabled && onClick?.()}
