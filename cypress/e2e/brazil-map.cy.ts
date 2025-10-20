@@ -33,4 +33,15 @@ describe('Mapa', () => {
         brazilMapPage.zoom(300);
         brazilMapPage.verifyTransform();
     });
+    
+    it('Deve exibir todos os 27 estados (26 + DF)', () => {
+        brazilMapPage.verifyBrazilMap();
+        brazilMapPage.verifyStatesQuantity(27);
+    });
+
+    it('Deve alterar a cor de um estado no hover', () => {
+        brazilMapPage.verifyBrazilMap();
+
+        brazilMapPage.verifyStateHoverEffect('SP', {default: '1', hover: '0.8'})
+    });
 })

@@ -42,6 +42,34 @@ class BrazilMapPage {
     zoom(zoomValue: number) {
         cy.get(el.brazilMap).trigger('wheel', { deltaX: zoomValue });
     }
+    
+    verifyStatesQuantity(quantity: number) {
+        cy.get(`${el.brazilStates} [data-test^="brazil-state-"]`)
+            .should('have.length', quantity);
+    }
+
+    getState(stateAcronym: string) {
+        return cy.get(el.brazilState(stateAcronym));
+    }
+
+    verifyStateOpacity(opacityValue: string) {
+        this.getState('SP')
+            .should('have.css', 'opacity', opacityValue);
+    }
+
+    stateMouseHover(stateAcronym: string, triggerType: string) {
+        cy.get(el.brazilState(stateAcronym)).trigger(triggerType);
+    }
+
+    verifyStateHoverEffect(stateAcronym: string, opacities: { default: string; hover: string }) {
+        this.verifyStateOpacity(opacities.default);
+        this.stateMouseHover(stateAcronym, 'mouseover');
+        this.verifyStateOpacity(opacities.hover);
+        this.stateMouseHover(stateAcronym, 'mouseout');
+        this.verifyStateOpacity(opacities.default);
+    }
+
+
 };
 
 export default BrazilMapPage;
