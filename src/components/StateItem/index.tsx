@@ -28,7 +28,7 @@ export function StateItem({ geo, fillColor, status, onClick }: StateItemProps) {
             outline: "none",
             stroke: "#FFF",
             strokeWidth: 0.3,
-            opacity: 0.95,
+            opacity: 1,
             cursor: isDisabled ? "not-allowed" : "pointer",
             pointerEvents: isDisabled ? "none" : "auto",
           },
